@@ -9,7 +9,7 @@
   --font-size-xlarge: 8rem; /* 80px */
   --color-primary: #2f574e;
   --color-secondary: #fd9b5c;
-  --color-accent: #FFCF5C;
+  --color-accent: #ffcf5c;
   --color-bg: #ffffff;
   --color-text: #000000;
   --color-shadow: rgba(0, 0, 0, 0.397);
@@ -41,7 +41,10 @@ html {
 body {
   font-size: var(--font-size-base);
   opacity: 0.8;
-  background-image: radial-gradient(var(--color-primary) 0.5px, var(--color-bg) 0.5px);
+  background-image: radial-gradient(
+    var(--color-primary) 0.5px,
+    var(--color-bg) 0.5px
+  );
   background-size: 10px 10px;
   --sb-track-color: #ffffff;
   --sb-thumb-color: #fd9b5c;
@@ -63,8 +66,7 @@ body::-webkit-scrollbar-thumb {
 
 @supports not selector(::-webkit-scrollbar) {
   body {
-      scrollbar-color: var(--sb-thumb-color)
-                     var(--sb-track-color);
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
 /* Header Styles */
@@ -144,16 +146,22 @@ nav ul li a:hover {
   font-size: var(--font-size-large);
   text-align: center;
   margin: 1.5rem 0;
+  white-space: pre-wrap;
+  overflow: hidden;
 }
-.svg-1{
+.svg-1 {
   position: fixed;
   top: 1%;
   left: 1%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
 }
-.svg-2{
+.svg-2 {
   position: fixed;
   bottom: 1%;
   right: 1%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
 }
 /* About Section */
 #about,
@@ -230,6 +238,7 @@ nav ul li a:hover {
   margin: 0 15px 30px;
   overflow: hidden;
   border-radius: 28px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .ag-courses-item_link {
