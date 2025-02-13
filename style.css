@@ -4,9 +4,9 @@
 /* Variables CSS */
 :root {
   --font-family: "Inter", sans-serif;
-  --font-size-base: 1.6rem; /* 16px */
-  --font-size-large: 2.5rem; /* 25px */
-  --font-size-xlarge: 8rem; /* 80px */
+  --font-size-base: clamp(1.4rem, 1.6vw, 1.6rem); /* 16px */
+  --font-size-large: clamp(2rem, 2.5vw, 2.5rem); /* 25px */
+  --font-size-xlarge: clamp(4rem, 8vw, 8rem); /* 80px */
   --color-primary: #2f574e;
   --color-secondary: #fd9b5c;
   --color-accent: #ffcf5c;
@@ -21,6 +21,10 @@
   --border-radius: 30px;
   --box-shadow: 0 4px 30px var(--color-shadow);
   --backdrop-filter: blur(10px);
+  --padding-small: clamp(1rem, 2vw, 2rem);
+  --padding-medium: clamp(2rem, 3vw, 3rem);
+  --padding-large: clamp(3rem, 4vw, 4rem);
+  --container-width: min(90%, 1200px);
 }
 
 /* Global Styles */
@@ -71,20 +75,22 @@ body::-webkit-scrollbar-thumb {
 }
 /* Header Styles */
 header {
-  height: 6rem; /* 100px */
+  margin-top: 10px;
+  height: clamp(5rem, 6vh, 6rem); /* 100px */
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: sticky;
+  position: fixed;
+  padding: var(--padding-small);
   padding-top: 0.8rem;
   top: 0;
   z-index: 1000;
 }
 
 nav {
-  height: 90%;
-  width: 345px;
+  height: 50px;
+  width: min(345px, 90%);
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -94,6 +100,7 @@ nav {
   backdrop-filter: var(--backdrop-filter);
   -webkit-backdrop-filter: var(--backdrop-filter);
   border: 1px solid var(--color-border);
+  padding: var(--padding-small);
 }
 
 nav ul {
@@ -119,7 +126,7 @@ nav ul li a:hover {
 
 /* Section Styles */
 #accueil {
-  height: calc(100vh - 6rem); /* 100px */
+  height: 100vh;
   padding: 3rem; /* 30px */
   display: flex;
   justify-content: center;
@@ -139,15 +146,18 @@ nav ul li a:hover {
 .accueil-title h1 {
   font-size: var(--font-size-xlarge);
   text-align: center;
+  padding: var(--padding-medium);
+  max-width: 100%;
 }
 
 .accueil-title p {
-  width: 70%;
+  width: min(70%, 800px);
   font-size: var(--font-size-large);
   text-align: center;
   margin: 1.5rem 0;
   white-space: pre-wrap;
   overflow: hidden;
+  padding: var(--padding-small);
 }
 .svg-1 {
   position: fixed;
@@ -155,6 +165,8 @@ nav ul li a:hover {
   left: 1%;
   transition: transform 0.5s ease;
   cursor: pointer;
+  width: clamp(40px, 5vw, 84px);
+  height: clamp(40px, 5vw, 74px);
 }
 .svg-2 {
   position: fixed;
@@ -162,12 +174,14 @@ nav ul li a:hover {
   right: 1%;
   transition: transform 0.5s ease;
   cursor: pointer;
+  width: clamp(40px, 5vw, 84px);
+  height: clamp(40px, 5vw, 74px);
 }
 /* About Section */
 #about,
 #passion {
-  height: 100vh;
-  padding: 3rem;
+  height: auto;
+  padding: var(--padding-medium);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,9 +194,9 @@ nav ul li a:hover {
 
 .about-container {
   height: 100%;
-  width: 100%;
+  width: var(--container-width);
   color: var(--color-bg);
-  padding: 20px;
+  padding: var(--padding-medium);
   border-radius: var(--border-radius);
   display: flex;
   align-items: center;
@@ -196,14 +210,16 @@ nav ul li a:hover {
   margin-top: 2%;
   font-size: var(--font-size-large);
   font-weight: 900;
+  width: min(90%, 800px);
+  margin: var(--padding-small);
 }
 
 /* Passion Section */
 .passion-container {
   height: 100%;
-  width: 100%;
+  width: var(--container-width);
   color: var(--color-bg);
-  padding: 20px;
+  padding: var(--padding-medium);
   border-radius: var(--border-radius);
   background-color: var(--color-bg-passion);
   display: flex;
@@ -218,30 +234,34 @@ nav ul li a:hover {
   margin-left: 5%;
   margin-top: 2%;
   margin-bottom: 2%;
-  width: 50%;
+  width: min(90%, 800px);
+  margin: var(--padding-small);
 }
 
 /* Courses Box */
 .ag-format-container {
-  width: 100%;
+  width: var(--container-width);
   margin: 0 auto;
 }
 
 .ag-courses_box {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 2rem;
+  padding: var(--padding-medium);
 }
 
 .ag-courses_item {
-  flex-basis: calc(33.33333% - 30px);
-  margin: 0 15px 30px;
+  width: 100%;
+  margin: 0;
+  /* aspect-ratio: 4/2; */
   overflow: hidden;
   border-radius: 28px;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .ag-courses-item_link {
+  height: 100%;
   text-decoration: none;
   display: block;
   padding: 30px 20px;
@@ -261,11 +281,11 @@ nav ul li a:hover {
 }
 
 .ag-courses-item_title {
-  min-height: 87px;
+  min-height: auto;
   margin: 0 0 25px;
   overflow: hidden;
   font-weight: bold;
-  font-size: 30px;
+  font-size: var(--font-size-large);
   color: var(--color-text);
   z-index: 2;
   position: relative;
@@ -298,3 +318,69 @@ nav ul li a:hover {
 }
 
 /* Responsive Styles */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+  }
+
+  nav ul li a {
+    font-size: var(--font-size-base);
+  }
+
+  .accueil-title p {
+    width: min(90%, 600px);
+  }
+
+  .about-description,
+  .passion-description {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    width: 95%;
+  }
+
+  .accueil-title h1 {
+    padding: var(--padding-small);
+  }
+
+  .ag-courses_box {
+    grid-template-columns: 1fr;
+  }
+
+  .ag-courses-item_title {
+    font-size: calc(var(--font-size-base) * 1.2);
+  }
+
+  .svg-1,
+  .svg-2 {
+    width: clamp(30px, 4vw, 40px);
+    height: clamp(30px, 4vw, 40px);
+  }
+}
+
+/* Ajustements pour les très grands écrans */
+@media (min-width: 1440px) {
+  :root {
+    --container-width: min(80%, 1400px);
+  }
+
+  .ag-courses_box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  #accueil,
+  #about,
+  #passion {
+    min-height: 120vh;
+  }
+
+  .accueil-title {
+    padding-top: var(--padding-large);
+  }
+}
