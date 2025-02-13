@@ -43,8 +43,30 @@ body {
   opacity: 0.8;
   background-image: radial-gradient(var(--color-primary) 0.5px, var(--color-bg) 0.5px);
   background-size: 10px 10px;
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #fd9b5c;
+  --sb-size: 14px;
+}
+body::-webkit-scrollbar {
+  width: var(--sb-size);
 }
 
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 1px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 1px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
 /* Header Styles */
 header {
   height: 6rem; /* 100px */
