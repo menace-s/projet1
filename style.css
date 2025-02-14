@@ -25,6 +25,8 @@
   --padding-medium: clamp(2rem, 3vw, 3rem);
   --padding-large: clamp(3rem, 4vw, 4rem);
   --container-width: min(90%, 1200px);
+  --header-height: clamp(5rem, 6vh, 6rem);
+  --scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
 /* Global Styles */
@@ -40,6 +42,7 @@ html {
   font-size: 62.5%; /* 1rem = 10px */
   font-family: var(--font-family);
   scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-margin-top);
 }
 
 body {
@@ -131,6 +134,12 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#accueil,
+#about,
+#passion {
+  scroll-margin-top: var(--scroll-margin-top);
 }
 
 .accueil-title {
