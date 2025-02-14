@@ -1,12 +1,10 @@
-/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-/* Variables CSS */
 :root {
   --font-family: "Inter", sans-serif;
-  --font-size-base: clamp(1.4rem, 1.6vw, 1.6rem); /* 16px */
-  --font-size-large: clamp(2rem, 2.5vw, 2.5rem); /* 25px */
-  --font-size-xlarge: clamp(4rem, 8vw, 8rem); /* 80px */
+  --font-size-base: clamp(1.4rem, 1.6vw, 1.6rem);
+  --font-size-large: clamp(2rem, 2.5vw, 2.5rem);
+  --font-size-xlarge: clamp(4rem, 8vw, 8rem);
   --color-primary: #2f574e;
   --color-secondary: #fd9b5c;
   --color-accent: #ffcf5c;
@@ -29,7 +27,6 @@
   --scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
-/* Global Styles */
 *,
 ::after,
 ::before {
@@ -39,7 +36,7 @@
 }
 
 html {
-  font-size: 62.5%; /* 1rem = 10px */
+  font-size: 62.5%;
   font-family: var(--font-family);
   scroll-behavior: smooth;
   scroll-padding-top: var(--scroll-margin-top);
@@ -57,6 +54,7 @@ body {
   --sb-thumb-color: #fd9b5c;
   --sb-size: 14px;
 }
+
 body::-webkit-scrollbar {
   width: var(--sb-size);
 }
@@ -76,10 +74,10 @@ body::-webkit-scrollbar-thumb {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-/* Header Styles */
+
 header {
   margin-top: 10px;
-  height: clamp(5rem, 6vh, 6rem); /* 100px */
+  height: clamp(5rem, 6vh, 6rem);
   width: 100%;
   display: flex;
   align-items: center;
@@ -127,10 +125,9 @@ nav ul li a:hover {
   color: var(--color-accent);
 }
 
-/* Section Styles */
 #accueil {
   height: 100vh;
-  padding: 3rem; /* 30px */
+  padding: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,6 +165,7 @@ nav ul li a:hover {
   overflow: hidden;
   padding: var(--padding-small);
 }
+
 .svg-1 {
   position: fixed;
   top: 1%;
@@ -177,6 +175,7 @@ nav ul li a:hover {
   width: clamp(40px, 5vw, 84px);
   height: clamp(40px, 5vw, 74px);
 }
+
 .svg-2 {
   position: fixed;
   bottom: 1%;
@@ -186,7 +185,7 @@ nav ul li a:hover {
   width: clamp(40px, 5vw, 84px);
   height: clamp(40px, 5vw, 74px);
 }
-/* About Section */
+
 #about,
 #passion {
   height: auto;
@@ -198,7 +197,7 @@ nav ul li a:hover {
 
 #about .about-container {
   background-color: var(--color-bg-about);
-  box-shadow: var(--box-shadow); /* Ajout de l'effet d'ombre */
+  box-shadow: var(--box-shadow);
 }
 
 .about-container {
@@ -223,7 +222,6 @@ nav ul li a:hover {
   margin: var(--padding-small);
 }
 
-/* Passion Section */
 .passion-container {
   height: 100%;
   width: var(--container-width);
@@ -235,7 +233,7 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  box-shadow: var(--box-shadow); /* Ajout de l'effet d'ombre */
+  box-shadow: var(--box-shadow);
 }
 
 .passion-description {
@@ -247,7 +245,6 @@ nav ul li a:hover {
   margin: var(--padding-small);
 }
 
-/* Courses Box */
 .ag-format-container {
   width: var(--container-width);
   margin: 0 auto;
@@ -263,7 +260,6 @@ nav ul li a:hover {
 .ag-courses_item {
   width: 100%;
   margin: 0;
-  /* aspect-ratio: 4/2; */
   overflow: hidden;
   border-radius: 28px;
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -326,7 +322,6 @@ nav ul li a:hover {
   background-color: #e44002;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   nav ul {
     gap: 1rem;
@@ -370,7 +365,6 @@ nav ul li a:hover {
   }
 }
 
-/* Ajustements pour les très grands écrans */
 @media (min-width: 1440px) {
   :root {
     --container-width: min(80%, 1400px);
@@ -381,7 +375,6 @@ nav ul li a:hover {
   }
 }
 
-/* Ajustements pour l'orientation paysage sur mobile */
 @media (max-height: 500px) and (orientation: landscape) {
   #accueil,
   #about,
